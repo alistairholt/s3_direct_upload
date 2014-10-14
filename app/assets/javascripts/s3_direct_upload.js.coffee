@@ -56,9 +56,9 @@ $.fn.S3Uploader = (options) ->
         $uploadForm.trigger("s3_uploads_start", [e])
 
       progress: (e, data) ->
-        if data.context
+        if settings.progress_bar_target
           progress = parseInt(data.loaded / data.total * 100, 10)
-          data.context.find('.bar').css('width', progress + '%')
+          settings.progress_bar_target.find('.bar').css('width', progress + '%')
 
       done: (e, data) ->
         content = build_content_object $uploadForm, data.files[0], data.result
